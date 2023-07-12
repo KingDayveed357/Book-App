@@ -23,6 +23,28 @@ function searchBook() {
        display.appendChild(books);
         })
     })
-    .catch((err) => alert('error'));
-    input.value = "";   
+
+    // .catch((err) => alert('error'));
+    // input.value = "";   
+}
+let colorBtn = document.getElementById("btn1")
+function generateColorCode() {
+    let colorFormer = 'abcdef0123456789';
+    let newColor = '';
+  
+    for (let i = 0; i < 6; i++) {
+      let randomColor = Math.floor(Math.random() * colorFormer.length);
+      newColor += colorFormer.charAt(randomColor);
+    }
+  
+    return `#${newColor}`;
+  }
+  
+  
+colorBtn.onclick = function(){
+    let randomColor = generateColorCode();
+    console.log(randomColor);
+    colorBtn.style.backgroundColor = randomColor;
+    document.body.style.backgroundColor = randomColor;
+    
 }
